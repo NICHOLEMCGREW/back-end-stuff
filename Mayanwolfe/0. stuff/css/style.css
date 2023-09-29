@@ -1,0 +1,152 @@
+/* Box Model Hack */
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+* {
+  box-sizing: inherit;
+}
+body {
+  font-family: sans-serif;
+  line-height: 1.5;
+}
+html, body {
+  height: 100%;
+}
+img, video {
+  height: auto;
+  max-width: 100%;
+}
+
+/* Clear fix hack */
+.clearfix:after {
+     content: ".";
+     display: block;
+     clear: both;
+     visibility: hidden;
+     line-height: 0;
+     height: 0;
+}
+
+.clear {
+	clear: both;
+}
+
+header {
+height: 10%;
+width: 100%;
+border: 1px solid black;
+
+}
+img{
+  max-width: 100%;
+}
+/******************************************
+/* BASE STYLES
+/*******************************************/
+
+/******************************************
+/* LAYOUT
+/*******************************************/
+
+.hero{
+  height: 45%;
+  width: 100%;
+  border: 1px solid black;
+}
+
+.hero-main {
+  height: 100%;
+  width: 50%;
+  border: 1px solid black;
+  float: left;
+  background-image: radial-gradient(ellipse at top, white, transparent), radial-gradient(ellipse at bottom, white, transparent),url(../imgs/1000.jpeg);
+  background-size: cover;
+  background-position: center;
+  padding-top: 250px;
+}
+.hero-content {
+  height: 100%;
+  width: 50%;
+  border: 1px solid black;
+  float: left;
+}
+h1{
+  /* color: white; */
+}
+
+.gallery{
+  height: 50%;
+  width: 50%;
+  border: 1px solid black;
+  float: left;
+}
+.other-content {
+  height: 45%;
+  width: 100%;
+  border: 1px solid black;
+  padding-left: 10vh;
+  padding-right: 10vw;
+}
+.left{
+  height: 100%;
+  width: 33.33%;
+  border: 1px solid black;
+  float: left;
+}
+.middle{
+  height: 100%;
+  width: 33.33%;
+  border: 1px solid black;
+  float: left;
+}
+.right{
+  height: 100%;
+  width: 33.33%;
+  border: 1px solid black;
+  float: right;
+}
+
+.gallery-small{
+  height: 31.33%;
+  width: 96%;
+  border: 1px solid black;
+  float: right;
+  margin: 2%;
+}
+.gallery-large{
+  height: 62.66%;
+  width: 96%;
+  border: 1px solid black;
+  float: right;
+  overflow: hidden;
+  margin: 2%;
+}
+.third-bucket{
+  height: 80vh;
+  width: 100%;
+  border: 1px solid black;
+
+}
+.header-l{
+  height: 100%;
+  width: 20%;
+  border: 1px solid black;
+  float: left;
+}
+.header-m{
+  height: 100%;
+  width: 60%;
+  border: 1px solid black;
+  float: left;
+}
+.header-r{
+  height: 100%;
+  width: 20%;
+  border: 1px solid black;
+  float: left;
+}
+/******************************************
+/* ADDITIONAL STYLES
+/*******************************************/
