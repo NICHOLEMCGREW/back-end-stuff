@@ -26,30 +26,29 @@ let persons = [
     }
 ]
 
-app.get('api/info', (req, res) => {
-    Person.find({}).then(persons => {
-        res.send(`Phonebook has info for ${persons.length} people <br /> ${Date()}`)
-    })
-})
-
 app.get('/', (req, res) => {
-    res.send('<h1>Hello World!</h1>')
+    res.send('<h1>Phonebook!</h1>')
 })
 
 app.get('/api/persons', (req, res) => {
+//   persons.find({}).then(persons => {
     res.json(persons)
+//   })
 })
+app.get('/info', (req, res) => {
+    // persons.find({}).then(persons => {
+      res.send(`Phonebook has info for ${persons.length} people <br /> ${Date()}`)
+    // })
+  })
 
+const generateID = () => {
+    const maxId = persons.length > 0
+    ? Math.max(...persons.map(n => n.id))
+    : 0
+    return maxId + 1
+}
 
-
-const generateCount = () => {
-    const maxCount = persons.length > 0
-      ? Math.max(...persons.map(n => n.count))
-      : 0
-    return maxCount + 1
-  }
-
-app.post('/info', (request, response) => {
+app.post('/api/persons', (request, response) => {
     const body = request.body
 
     if (!body.content) {
@@ -59,9 +58,10 @@ app.post('/info', (request, response) => {
     }
 
     const person = {
-        content: body.content,
-        count: `Phonebook has info for ${generateCount()}`,
-        date: new Date()
+        name: body.name,
+        number: body.number,
+        date: new Date(),
+        id: generateID(),
     }
 
     persons = persons.concat(person)
@@ -69,11 +69,16 @@ app.post('/info', (request, response) => {
     response.json(person)
 })
 
-
-// app.get('/info', (req, res) => {
-//     res.json(person)
-// })
-
+app.get('/api/persons/:id', (request, response) => {
+    const id = Number(request.params.id)
+    const person = persons.find(person => person.id === id)
+  
+    if (person) {
+      response.json(person)
+    } else {
+      response.status(404).end()
+    }
+  })
 
 
 const PORT = 3001
