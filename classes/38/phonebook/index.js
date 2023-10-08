@@ -50,6 +50,7 @@ const generateID = () => {
 
 app.post('/api/persons', (request, response) => {
     const body = request.body
+    id = Math.round(Math.random() * 100)
 
     if (!body.content) {
         return response.status(400).json({
