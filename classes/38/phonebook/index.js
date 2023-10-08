@@ -54,7 +54,7 @@ app.post('/api/persons', (request, response) => {
 
     if (!body.content) {
         return response.status(400).json({
-            error: 'content missing'
+            error: 'name must be unique'
         })
     }
 
